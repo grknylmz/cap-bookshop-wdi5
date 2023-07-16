@@ -25,3 +25,6 @@ steps:
     failOnError: true
   cloudFoundryDeploy:
     mtaDeployParameters: "-f --version-rule ALL"
+  tmsUpload:
+    nodeName: "DEV"
+    credentialsId: "tms"

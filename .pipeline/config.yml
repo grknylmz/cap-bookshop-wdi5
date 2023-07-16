@@ -17,7 +17,7 @@ stages:
     cfAppName: "bookshop"
     cfCredentialsId: "cfdeploy"
     deployType: "standard"
-    tmsUpload: false
+    tmsUpload: true
 steps:
   artifactPrepareVersion:
     versioningType: "cloud_noTag"

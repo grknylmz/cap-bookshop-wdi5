@@ -1,0 +1,30 @@
+---
+general:
+  buildTool: "mta"
+stages:
+  Build:
+    mavenExecuteStaticCodeChecks: false
+    npmExecuteLint: true
+  Additional Unit Tests:
+    npmExecuteScripts: false
+  Compliance:
+    sonarExecuteScan: false
+  Release:
+    cloudFoundryDeploy: true
+    cfApiEndpoint: "https://api.cf.us10-001.hana.ondemand.com"
+    cfOrg: "232a5c89trial_test-czw2gb5z"
+    cfSpace: "TEST"
+    cfAppName: "bookshop"
+    cfCredentialsId: "cfdeploy"
+    deployType: "standard"
+    tmsUpload: false
+steps:
+  artifactPrepareVersion:
+    versioningType: "cloud_noTag"
+  npmExecuteLint:
+    failOnError: true
+  cloudFoundryDeploy:
+    mtaDeployParameters: "-f --version-rule ALL"
+  tmsUpload:
+    nodeName: "qa"
+    credentialsId: "tms-sk"
